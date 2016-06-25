@@ -42,19 +42,20 @@ for (var i = 1; i < 101; i++) {
 var board = "";
 var size = 8;
 for (var x = 0; x < size; x++) {
-  for (var y = 0; i < size; y++) {
+  for (var y = 0; y < size; y++) {
     if (y % 2 == 0) { // For even columns
       if (x % 2 == 0) // For even rows
         board += "#";
       else // For odd rows
         board += " ";
     }
-    else {
-
-    }
-
-      }
-
+    else { // For odd column
+      if (x % 2 == 0) // For even row
+        board += " ";
+      else // For odd row
+        board += "#";
     }
   }
+  board += "\n"; // Start a new row
 }
+console.log(board);
