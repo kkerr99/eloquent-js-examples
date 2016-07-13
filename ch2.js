@@ -59,26 +59,3 @@ for (var x = 0; x < size; x++) {
   board += "\n"; // Start a new row
 }
 console.log(board);
-
-// 3.1 Minimum
-// Write a function "min" that takes two args and returns their minimum.
-
-// 3.1.a Write as a statement
-var min = function(num1, num2) {
-  if (num1 < num2)
-    return num1;
-  else
-    return num2;
-}
-
-// 3.1.b Write as an expression
-function min(num1, num2) {
-  if (num1 < num2)
-    return num1;
-  else
-    return num2;
-}
-
-console.log(min(3,4));
-console.log(min(4,3));
-console.log(min(18,12));
