@@ -70,3 +70,24 @@ console.log(isEven(-50));
 true
 console.log(isEven(-75));
 false
+
+// 3.3 Bean counting
+
+// 3.3.a
+
+function countBs(str){
+  var counter = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str.charAt(i) == "B")
+        counter++;
+  }
+  return counter;
+}
+
+// Test Vals
+console.log(countBs("binB"))
+1
+console.log(countBs("BinB"))
+2
+console.log(countBs("BinBinbugsBunny"))
+3
