@@ -91,3 +91,34 @@ console.log(countBs("BinB"))
 2
 console.log(countBs("BinBinbugsBunny"))
 3
+
+// 3.3.b
+// Write a fn "countChar" that behaves like "countBs", but it takes a 2nd arg
+// that indicates the char that is to be counted. Rewrite "countBs" to use this
+// new fn.
+
+function countChar (str, char) {
+  var counter = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str.charAt(i) == char)
+        counter++;
+  }
+  return counter;
+}
+
+function countBs(str){
+  var charToBeCounted = "B";
+  return countChar(str, charToBeCounted)
+}
+
+// Test Vals
+console.log(countChar("abba", "a"))
+2
+console.log(countChar("abba", "b"))
+2
+console.log(countBs("binB"))
+1
+console.log(countBs("BinB"))
+2
+console.log(countBs("BinBinbugsBunny"))
+3
