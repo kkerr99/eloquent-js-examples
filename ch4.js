@@ -32,4 +32,10 @@ function range(start, end) {
 // console.log(sum(range (2,8)));
 // 35
 
-function
+function sum(array) {
+  var arraySum = 0;
+  for (var i = 0; i < array.length; i++) {
+    arraySum = arraySum + array[i];
+  }
+  return arraySum;
+}
