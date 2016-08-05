@@ -39,3 +39,42 @@ function sum(array) {
   }
   return arraySum;
 }
+
+// 4.1c Modify the range fn to take an optional third arg that indicates the
+// step value used to build up the array. If no step is given, the array
+// elements go up by increments of one, corresponding to the old behavior. The
+// function call range(1,10, 2) should return [1, 3, 5, 7, 9]. Make sure it also
+// works with negative step values so that range (5, 2, -1) produces
+// [5, 4, 3, 2].
+
+// Test values
+//
+// console.log(range (3,6));
+// 3, 4, 5, 6
+// console.log(range(1,10, 2));
+// [1, 3, 5, 7, 9]
+// console.log(range (5, 2, -1))
+// [5, 4, 3, 2]
+// console.log(range (4, 1))
+// [4, 3, 2, 1]
+// console.log(range (5, 2, 1))
+// Error - Step value sign incorrect
+
+function range(start, end, step) {
+  var rangeValues = [];
+  var value = start;
+  var increment = 1;
+  if (arguments[2] != null) { // Is there a step argument?
+    if ( ((end - start) > 0) && (step < 0) ) // Range is ascending and step is non-negative
+      return ("Error - Step value sign incorrect")
+    else if ( ((end - start) < 0) && (step > 0) ) // Range is descending and step is positive
+      return ("Error - Step value sign incorrect")
+    else
+      increment = step;
+  }
+  for (var i = 0; i <= (Math.abs(end - start) / increment); i++) {
+    rangeValues[i] = value;
+    value = value + increment;
+  }
+  return rangeValues;
+}
