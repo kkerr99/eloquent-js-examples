@@ -2,8 +2,8 @@
 
 // 2.1 Looping a triangle
 var brick = "#";
-var triangleBase = brick;
+var triangleBase = "";
 for (var i = 0; i < 7; i++) {
-  console.log(triangleBase);
   triangleBase = triangleBase + brick;
+  console.log(triangleBase);
 }
