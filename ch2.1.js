@@ -92,3 +92,46 @@ for (var i = 1; i < end; i++) {
     console.log("Buzz");
   }
 }
+
+
+//  2.3 Chess Board
+
+/*
+    2.3a  Write a program that creates a string that represents an 8x8 grid,
+          using newline characters to separate lines.
+
+          At each position of the grid there is either a space or a "#"
+          character. The characters should form a chess board.
+*/
+
+var string = "";
+// Loop for every row
+for (var x = 0; x < 8; x++) {
+  // Loop for column
+  for (var y = 0; y < 8; y++) {
+    // If row is even
+    if ( (x % 2) == 0) {
+      // If column is even
+      if ( (y % 2) == 0) {
+        string += "#";
+      }
+      // If column is odd
+      else {
+        string += " ";
+      }
+    }
+    // if row is odd
+    else {
+      // If column is even
+      if ( (y % 2) == 0) {
+        string += " ";
+      }
+      // If column is odd
+      else {
+        string += "#";
+      }
+    }
+  }
+  string += "\n";
+}
+console.log(string);
