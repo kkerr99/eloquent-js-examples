@@ -97,18 +97,17 @@ for (var i = 1; i < end; i++) {
 //  2.3 Chess Board
 
 /*
-    2.3a  Write a program that creates a string that represents an 8x8 grid,
-          using newline characters to separate lines.
-
-          At each position of the grid there is either a space or a "#"
-          character. The characters should form a chess board.
+    2.3b  Define a variable "size = 8" and change the program so that it works
+    for any size, outputting a grid of the given width and height.
 */
 
+// The width and height of the grid
+var size = 2;
 var string = "";
 // Loop for every row
-for (var x = 0; x < 8; x++) {
+for (var x = 0; x < size; x++) {
   // Loop for column
-  for (var y = 0; y < 8; y++) {
+  for (var y = 0; y < size; y++) {
     // If row is even
     if ( (x % 2) == 0) {
       // If column is even
