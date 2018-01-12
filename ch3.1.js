@@ -177,3 +177,37 @@ console.log(countBs("oboe"));
 console.log(countBs("oBoe"));
 console.log(countBs("naboB"));
 console.log(countBs("naBoB"));
+
+/*
+  3.3c Bean Counting
+  Write 3.3a recursively.
+
+  Tests
+    "red"     0
+    "oboe"    0
+    "oBoe"    1
+    "naboB"   1
+    "naBoB"   2
+*/
+function countBs(string) {
+  var letter = "B";
+  var count = 0;
+
+  if (string.length == 0) {
+    return count;
+  }
+  else {
+    if (letter == string.charAt(0)) {
+      count++;
+    }
+    count += countBs(string.substr(1, string.length));
+    console.log(count);
+  }
+}
+
+// Test harness
+console.log(countBs("red"));
+console.log(countBs("oboe"));
+console.log(countBs("oBoe"));
+console.log(countBs("naboB"));
+console.log(countBs("naBoB"));
