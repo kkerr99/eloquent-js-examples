@@ -117,8 +117,28 @@ console.log(isEven(-75));
   the string.
 
   Tests
-
+    "red"     0
+    "oboe"    0
+    "oBoe"    1
+    "naboB"   1
+    "naBoB"   2
 */
+function countBs(string) {
+  var count = 0;
+  for (i = 0; i < string.length; i++) {
+    if (string.charAt(i) == "B") {
+      count++;
+    }
+  }
+  return count;
+}
+
+// Test harness
+console.log(countBs("red"));
+console.log(countBs("oboe"));
+console.log(countBs("oBoe"));
+console.log(countBs("naboB"));
+console.log(countBs("naBoB"));
 
 /*
   3.3b Bean Counting
