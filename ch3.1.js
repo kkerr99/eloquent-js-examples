@@ -149,5 +149,31 @@ console.log(countBs("naBoB"));
   Rewrite "countBs" to make use of this new function.
 
   Tests
-
+    "red"     0
+    "oboe"    0
+    "oBoe"    1
+    "naboB"   1
+    "naBoB"   2
 */
+function countChar(string, char) {
+  var count = 0;
+
+  for (i = 0; i < string.length; i++) {
+    if (string.charAt(i) == char) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function countBs(string) {
+  var letter = "B";
+  return countChar(string, letter);
+}
+
+// Test harness
+console.log(countBs("red"));
+console.log(countBs("oboe"));
+console.log(countBs("oBoe"));
+console.log(countBs("naboB"));
+console.log(countBs("naBoB"));
