@@ -180,7 +180,7 @@ console.log(countBs("naBoB"));
 
 /*
   3.3c Bean Counting
-  Write 3.3a recursively.
+  Write 3.3a and 3.3b recursively.
 
   Tests
     "red"     0
@@ -189,25 +189,26 @@ console.log(countBs("naBoB"));
     "naboB"   1
     "naBoB"   2
 */
-function countBs(string) {
-  var letter = "B";
-  var count = 0;
-
-  if (string.length == 0) {
-    return count;
-  }
-  else {
-    if (letter == string.charAt(0)) {
-      count++;
+function countChar(char, string) {
+  function testString(letter, word, letterCount) {
+    if (word.length == 0) {
+      return letterCount;
     }
-    count += countBs(string.substr(1, string.length));
-    console.log(count);
+    else {
+      if (letter == word.charAt(0)) {
+        return testString(letter, word.substr(1, word.length), ++letterCount);
+      }
+      else {
+        return testString(letter, word.substr(1, word.length), letterCount);
+      }
+    }
   }
+  return testString(char, string, 0);
 }
 
 // Test harness
-console.log(countBs("red"));
-console.log(countBs("oboe"));
-console.log(countBs("oBoe"));
-console.log(countBs("naboB"));
-console.log(countBs("naBoB"));
+console.log(countChar("B", "red"));
+console.log(countChar("B", "oboe"));
+console.log(countChar("B", "oBoe"));
+console.log(countChar("B", "naboB"));
+console.log(countChar("B", "naBoB"));
