@@ -149,3 +149,40 @@ console.log(map["touched tree"]);
 
 for (var event in map)
   console.log("The correlation for '" + event + "' is " + map[event]);
+
+function gatherCorrelations(journal) {
+  var phis = {};
+  for (var entry = 0; entry < journal.length; entry++) {
+    var events = journal[entry].events;
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      if (!(event in phis))
+        phis[event] = phi(tableFor(event, journal));
+    }
+  }
+  return phis;
+}
+
+// Print the correlation value for "pizza"
+var correlations = gatherCorrelations(JOURNAL);
+console.log(correlations.pizza);
+
+// List all the correlation property names and values
+for (var event in correlations)
+  console.log(event + ": " + correlations[event]);
+
+// Show correlations where (c > 0.1) or (c < -0.1)
+for (var event in correlations) {
+  var correlation = correlations[event];
+  if (correlation > 0.1 || correlation < -0.1)
+    console.log(event + ": " + correlation);
+}
+
+// Check the correlation between eating peanuts and not brushing teeth
+for (var i = 0; i < JOURNAL.length; i++) {
+  var entry = JOURNAL[i];
+  if (hasEvent("peanuts", entry) &&
+      !hasEvent("brushed teeth", entry))
+    entry.events.push("peanut teeth");
+}
+console.log(phi(tableFor("peanut teeth", JOURNAL)));
