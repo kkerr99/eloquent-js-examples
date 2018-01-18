@@ -186,3 +186,40 @@ for (var i = 0; i < JOURNAL.length; i++) {
     entry.events.push("peanut teeth");
 }
 console.log(phi(tableFor("peanut teeth", JOURNAL)));
+
+// Exercises
+
+/*
+    4.1.a The Sum of a Range
+    Write the fucntions to make this happen:
+    console.log(sum(range(1, 10)));
+
+    Write a "range" function that takes two arguments, "start" and "end",
+    and returns an array containing all the numbers from "start" up to
+    (and including) "end".
+
+    Next, write a "sum" function that takes an array of numbers and returns
+    the sum of these numbers. Run the previous program and see whther it does
+    indeed return 55.
+
+    Tests
+
+    range()
+
+    range(1, 3)   1, 2, 3
+    range(2, 5)   2, 3, 4, 5
+    range(1, 10)  1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+    sum()
+
+    sum(1, 2, 3)                        6
+    sum(2, 3, 4, 5)                     14
+    sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  55
+
+    sum((range())
+
+    sum(range(1, 3))    6
+    sum(range(2, 5)     14
+    sum(range(1, 10))   55
+
+*/
