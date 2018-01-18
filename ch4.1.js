@@ -206,20 +206,35 @@ console.log(phi(tableFor("peanut teeth", JOURNAL)));
 
     range()
 
-    range(1, 3)   1, 2, 3
-    range(2, 5)   2, 3, 4, 5
-    range(1, 10)  1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    console.log(range(1, 3));   1, 2, 3
+    console.log(range(2, 5));   2, 3, 4, 5
+    console.log(range(1, 10));  1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
     sum()
 
-    sum(1, 2, 3)                        6
-    sum(2, 3, 4, 5)                     14
-    sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  55
+    console.log(sum([1, 2, 3]));                        6
+    console.log(sum([2, 3, 4, 5]));                     14
+    console.log(sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));  55
 
     sum((range())
 
-    sum(range(1, 3))    6
-    sum(range(2, 5)     14
-    sum(range(1, 10))   55
+    console.log(sum(range(1, 3)));    6
+    console.log(sum(range(2, 5)));    14
+    console.log(sum(range(1, 10)));   55
 
 */
+function range(start, end) {
+  var numList = [];
+  for (i = start; i <= end; i++) {
+    numList.push(x);
+  }
+  return numList;
+}
+
+function sum(array) {
+  var arraySum = 0;
+  for (i = 0; i < array.length; i++) {
+    arraySum += array[i];
+  }
+  return arraySum;
+}
