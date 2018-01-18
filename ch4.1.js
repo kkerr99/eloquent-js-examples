@@ -238,3 +238,44 @@ function sum(array) {
   }
   return arraySum;
 }
+
+/*
+    4.1.b
+    Modify "range" to take an optional third argument "step" argument. If no
+    step is given, the array element increments are 1 (the old behavior).
+    The call "range(1,10,2)" should return [1, 3, 5, 7, 9].
+    Make sure it also works with negative step values:
+      "range(5, 2, -1)" --> [5, 4, 3, 2]
+
+    Tests
+
+    range()
+
+    console.log(range(1, 3));   [1, 2, 3]
+    console.log(range(2, 5));   [2, 3, 4, 5]
+    console.log(range(1, 10));  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    console.log(range(1, 10, 2));     [1, 3, 5, 7, 9]
+    console.log(range(5, 2, -1));     [5, 4, 3, 2]
+    console.log(range(10, 1, -3));    [10, 7, 4, 1]
+
+    function range(start, end, step) {
+      if (step == undefined)
+        step = 1;
+      var numList = [];
+
+      if (end > start) {
+        for (i = start; i <= end; i+= step) {
+          numList.push(i);
+        }
+      }
+      else {
+        for (i = start; i >= end; i+= step) {
+          numList.push(i);
+        }
+      }
+      return numList;
+    }
+
+
+*/
