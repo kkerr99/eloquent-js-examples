@@ -276,3 +276,32 @@ function sum(array) {
       }
       return numList;
     }
+
+/*
+    4.2 Reversing an Array
+    Write two functions, "reverseArray" and "reverseArrayInPlace".
+    "reverseArray" takes an array as an argument and produces a new
+    array that has the same elements in the inverse order.
+    "reverseArrayInPlace" does what the "reverse" method does--modifies
+    the array given as an argument in order to reverse its elements.
+    Neither may use the standard "reverse" method.
+*/
+
+/*
+    reverseArray
+    Takes an array as an argument and produces a new array that has the
+    same elements in the inverse order.
+
+    Tests
+    var array1 = [1, 2, 3];
+    var array2 = reverseArray(array1);
+    console.log(array2);              [3, 2, 1]
+    array1 == array2;                false
+*/
+function reverseArray(array) {
+  var inverseArray = [];
+  for (i = 0; i < array.length; i++) {
+    inverseArray[i] = array[(array.length - 1) - i];
+  }
+  return inverseArray;
+}
