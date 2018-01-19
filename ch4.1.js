@@ -305,3 +305,28 @@ function reverseArray(array) {
   }
   return inverseArray;
 }
+
+/*
+    reverseArrayInPlace
+    The function does what the "reverse" method does--modifies
+    the array given as an argument in order to reverse its elements.
+
+    Tests
+    var fruits1 = ["Banana", "Orange", "Apple", "Mango"];
+    reverseArrayInPlace(fruits1);
+    console.log(fruits1);       [Mango, Apple, Orange, Banana]
+
+    WHY DOES THIS WORK? I thought parameters are only in the scope of
+    the function.
+*/
+function reverseArrayInPlace(array) {
+  var tempInverseArray = [];
+  // Pop elements off the end of array, and build temInverseArray
+  while (array.length != 0) {
+    tempInverseArray.push(array.pop());
+  }
+  // Copy the elements from tempInverseArray to array
+  for (i = 0; i < tempInverseArray.length; i++) {
+    array[i] = tempInverseArray[i];
+  }
+}
