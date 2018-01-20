@@ -316,8 +316,6 @@ function reverseArray(array) {
     reverseArrayInPlace(fruits1);
     console.log(fruits1);       [Mango, Apple, Orange, Banana]
 
-    WHY DOES THIS WORK? I thought parameters are only in the scope of
-    the function.
 */
 function reverseArrayInPlace(array) {
   var tempInverseArray = [];
@@ -330,3 +328,19 @@ function reverseArrayInPlace(array) {
     array[i] = tempInverseArray[i];
   }
 }
+
+/*
+  4.3 A List
+
+  Write a function "arrayToList" that builds up a data structure like the
+  previous one when given [1, 2, 3] as an argument.
+
+  Write a "listToArray" function that produces an array from a list.
+
+  Write the helper functions "prepend" which takes an element and a list
+  and creates a new list that adds the element to the front of the input list.
+
+  Write "nth" (in both iterative and recursive versions) which takes a list
+  and a number and returns the element at the given position in the list,
+  or "undefined" when there is no such element.
+*/
