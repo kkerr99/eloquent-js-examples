@@ -364,9 +364,35 @@ function reverseArrayInPlace(array) {
     }
   }
 
-  console.log(typeof list);
-  --> object
+  console.log(typeof list);         object
+
+  var array = [1, 2, 3];
+  var list = arrayToList(array);
+  console.log(typeof list);         object
+
+  console.log(list.value);          1
+  console.log(list.rest);           >{value: 2, rest: {…}}
+  console.log(list.rest.value);     2
+  console.log(list.rest.rest);      >{value: 3, rest: null}
+
 */
+function arrayToList(array) {
+  if (array.length == 1) {
+    var list = { };
+    list.value = array[0];
+    list.rest = null;
+    return list;
+  }
+  else {
+    var list = { };
+    list.value = array[0];
+    list.rest = arrayToList(array.slice(1));
+    return list;
+  }
+}
+
+
+
 
 /*
   listToArray
