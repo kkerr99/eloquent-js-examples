@@ -344,3 +344,42 @@ function reverseArrayInPlace(array) {
   and a number and returns the element at the given position in the list,
   or "undefined" when there is no such element.
 */
+
+/*
+  arrayToList
+
+  Builds up a data structure like the previous one when given [1, 2, 3] as
+  an argument.
+
+  Tests
+
+  var list = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    }
+  }
+
+  console.log(typeof list);
+  --> object
+*/
+
+/*
+  listToArray
+
+  Produces an array from a list.
+
+  Tests
+
+  var array1 = [1, 2, 3];
+  var list = arrayToList(array1);
+  var array2 = listToArray(list);
+  console.log("array1: " + "[" + array1 + "]");
+  console.log("array2: " + "[" + array2 + "]");
+
+
+*/
