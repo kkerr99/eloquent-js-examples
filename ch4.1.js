@@ -337,7 +337,7 @@ function reverseArrayInPlace(array) {
 
   Write a "listToArray" function that produces an array from a list.
 
-  Write the helper functions "prepend" which takes an element and a list
+  Write the helper function "prepend" which takes an element and a list
   and creates a new list that adds the element to the front of the input list.
 
   Write "nth" (in both iterative and recursive versions) which takes a list
@@ -391,9 +391,6 @@ function arrayToList(array) {
   }
 }
 
-
-
-
 /*
   listToArray
 
@@ -406,6 +403,18 @@ function arrayToList(array) {
   var array2 = listToArray(list);
   console.log("array1: " + "[" + array1 + "]");
   console.log("array2: " + "[" + array2 + "]");
-
-
 */
+function listToArray(list) {
+  var array = [];
+  while (list.rest != null) {
+    array.push(list.value);
+  }
+  if (list.rest == null) {
+    array.push(list.value);
+    return array;
+  }
+  else {
+    array.push(list.value);
+    return listToArray(list.rest);
+  }
+}
