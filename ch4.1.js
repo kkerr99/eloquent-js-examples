@@ -351,6 +351,37 @@ function reverseArrayInPlace(array) {
   Builds up a data structure like the previous one when given [1, 2, 3] as
   an argument.
 
+  // Some test code
+
+  // An object created inside a function survives after the function call
+  function returnLocalArray() {
+    var array = [1, 2, 3];
+    return array;
+  }
+
+  var array1 = returnLocalArray();
+  console.log(typeof array1);
+    object
+  console.log(array1);
+    (3) [1, 2, 3]
+
+
+  // A global object var can be passed to a function as a parameter. The
+  // function can update the object, and the update survives after the
+  // function call.
+  var array2 = [1, 2, 3];
+
+  function returnGlobalArray(array2) {
+    array = [4, 5, 6];
+    return array;
+  }
+
+  array2 = returnGlobalArray(array2);
+  console.log(typeof array2);
+    object
+  console.log(array2);
+    (3) [4, 5, 6]
+
   Tests
 
   var list = {
@@ -367,25 +398,25 @@ function reverseArrayInPlace(array) {
   console.log(typeof list);         object
 
   var array = [1, 2, 3];
-  var list = arrayToList(array);
-  console.log(typeof list);         object
+  var list1 = {};
+  list1 = arrayToList(array);
+  console.log(typeof list1);         object
 
-  console.log(list.value);          1
-  console.log(list.rest);           >{value: 2, rest: {…}}
-  console.log(list.rest.value);     2
-  console.log(list.rest.rest);      >{value: 3, rest: null}
-
+  console.log(list1.value);          1
+  console.log(list1.rest);           >{value: 2, rest: {…}}
+  console.log(list1.rest.value);     2
+  console.log(list1.rest.rest);      >{value: 3, rest: null}
 */
+
 function arrayToList(array) {
-  if (array.length == 1) {
-    var list = { };
-    list.value = array[0];
+  var list = {};
+  list.value = array[0];
+  if (array.length == 1)
+  {
     list.rest = null;
     return list;
   }
   else {
-    var list = { };
-    list.value = array[0];
     list.rest = arrayToList(array.slice(1));
     return list;
   }
@@ -406,15 +437,14 @@ function arrayToList(array) {
 */
 function listToArray(list) {
   var array = [];
-  while (list.rest != null) {
-    array.push(list.value);
+  function pushListToArray(list) {
+  array.push(list.value);
+    if (list.rest == null) {
+      return;
+    }
+    else {
+      pushListToArray(list.rest);
+    }
   }
-  if (list.rest == null) {
-    array.push(list.value);
-    return array;
-  }
-  else {
-    array.push(list.value);
-    return listToArray(list.rest);
-  }
+  return array;
 }
