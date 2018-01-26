@@ -437,14 +437,14 @@ function arrayToList(array) {
 */
 function listToArray(list) {
   var array = [];
-  function pushListToArray(list) {
-  array.push(list.value);
+  function buildArray(list) {
+    array.push(list.value);
     if (list.rest == null) {
-      return;
+      return array;
     }
     else {
-      pushListToArray(list.rest);
+      return buildArray(list.rest);
     }
   }
-  return array;
+  return buildArray(list);
 }
