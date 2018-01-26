@@ -448,3 +448,25 @@ function listToArray(list) {
   }
   return buildArray(list);
 }
+
+/*
+  list prepend(element, list)
+
+  A helper function that takes an element and a list and creates a new list
+  that adds the element to the front of the input list.
+
+  Tests
+
+  var array1 = [2, 3, 4];
+  var list1 = arrayToList(array1);
+  var element = 1;
+  var list2 = prepend(element, list1);
+  var array2 = listToArray(list2);
+  console.log(array2);
+*/
+function prepend(element, list) {
+  var newList = {};
+  newList.value = element;
+  newList.rest = list;
+  return newList;
+}
