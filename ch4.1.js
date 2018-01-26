@@ -502,3 +502,44 @@ function nthIterative(list, index) {
   }
   return element;
 }
+
+/*
+  element nthRecursive(list, index)
+
+  Write "nth" (in both iterative and recursive versions) that takes a list
+  and a number and returns the element at the given position in the list,
+  or "undefined" when there is no such element.
+
+  Tests
+
+  var array1 = [5, 6, 7, 8, 9];
+  var list1 = arrayToList(array1);
+  var index1 = 2;
+  var index2 = 29;
+  var element1 = nthRecursive(list1, index1);
+  var element2 = nthRecursive(list1, index2);
+  console.log("The value at position " + index1 + " is " + element1);
+  console.log("The value at position " + index2 + " is " + element2);
+*/
+function nthRecursive(list, index) {
+  var depth = 0;
+  function traverseList(list, index, depth)
+  {
+    if ((list.rest == null) || (depth > index)) {
+      return undefined;
+    }
+    else {
+      if (depth == index) {
+        return list.value;
+      }
+      else {
+        depth++;
+        return traverseList(list.rest, index, depth);
+      }
+    }
+  }
+  return traverseList(list, index, depth);
+}
+
+
+}
