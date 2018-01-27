@@ -567,6 +567,14 @@ function nthRecursive(list, index) {
     make: "toyota",
     model: "pickup",
     years: [92, 93, 94] }
+  var obj6 = {
+    make: "toyota",
+    model: "4Runner",
+    years: [92, 93, 94] }
+  var obj7 = {
+    make: "toyota",
+    model: "pickup",
+    years: [89, 90, 91] }
 
   console.log(deepEqual(x, y));
     true
@@ -576,6 +584,10 @@ function nthRecursive(list, index) {
     true
   console.log(deepEqual(obj1, obj3));
     false
-
-
+  console.log(deepEqual(obj4, obj5));
+    true
+  console.log(deepEqual(obj4, obj6));
+    false
+  console.log(deepEqual(obj4, obj7));
+    false
 */
