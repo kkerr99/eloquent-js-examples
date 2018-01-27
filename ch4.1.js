@@ -575,6 +575,8 @@ function nthRecursive(list, index) {
     make: "toyota",
     model: "pickup",
     years: [89, 90, 91] }
+  var obj8 = null;
+  var obj9 = null;
 
   console.log(deepEqual(x, y));
     true
@@ -590,4 +592,22 @@ function nthRecursive(list, index) {
     false
   console.log(deepEqual(obj4, obj7));
     false
+  console.log(deepEqual(obj7, obj8));
+    false
+  console.log(deepEqual(obj8, obj9));
+    true
 */
+function deepEqual(value1, value2) {
+  // Neither value is an object, do shallow comparison
+  if ((typeof value1 != object) && (typeof value2 != object)) {
+    return (value1 === value2);
+  }
+  // Both values are objects, do a deep (recursive) comparison
+  else {
+    // Check for ("typeof null" = object) exception
+    if ((value1 === null) && (value2 === null)) {
+      return true;
+    }
+
+  }
+}
