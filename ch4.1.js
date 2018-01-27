@@ -562,25 +562,33 @@ function nthRecursive(list, index) {
   var obj4 = {
     make: "toyota",
     model: "pickup",
-    years: [92, 93, 94] }
+    years: [92, 93, 94] };
   var obj5 = {
     make: "toyota",
     model: "pickup",
-    years: [92, 93, 94] }
+    years: [92, 93, 94] };
   var obj6 = {
     make: "toyota",
     model: "4Runner",
-    years: [92, 93, 94] }
+    years: [92, 93, 94] };
   var obj7 = {
     make: "toyota",
     model: "pickup",
-    years: [89, 90, 91] }
+    years: [89, 90, 91] };
   var obj8 = null;
   var obj9 = null;
+  var obj10 = {
+    rocket: "Saturn V",
+    speed: 999,
+    cost: 999999 };
 
   console.log(deepEqual(x, y));
     true
   console.log(deepEqual(x, z));
+    false
+  console.log(deepEqual(x, z));
+    false
+  console.log(deepEqual(obj4, obj10));
     false
   console.log(deepEqual(obj1, obj2));
     true
@@ -599,19 +607,25 @@ function nthRecursive(list, index) {
 */
 function deepEqual(value1, value2) {
   // Neither value is an object, do shallow comparison
-  if ((typeof value1 != object) && (typeof value2 != object)) {
+  if ((typeof value1 != "object") && (typeof value2 != "object")) {
     return (value1 === value2);
   }
-  // Both values are objects, do a deep (recursive) comparison
+  // Both values are objects
   else {
     // Check for ("typeof null" = object) exception
+    // If both values are null
     if ((value1 === null) && (value2 === null)) {
       return true;
     }
-    // Iterate therough all the object properties
+    // If one value is null
+    else if ((value1 === null) || (value2 === null)) {
+      return false;
+    }
+    // Both values are valid objects, iterate therough all the object properties
     var equal = true;
     for (var property in value1) {
-      return equal *= deepEqual(value1[property], value2[property]);
+      equal = equal && deepEqual(value1[property], value2[property]);
     }
+    return equal;
   }
 }
