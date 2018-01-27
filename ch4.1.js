@@ -541,5 +541,41 @@ function nthRecursive(list, index) {
   return traverseList(list, index, depth);
 }
 
+/*
+  4.4 Deep Comparison
 
-}
+  Write a recursive function "deepEqual" that takes two values and returns
+  true only if they are the same value or are objects with the same properties
+  whose values are also equal when compared with a recursive call to deepEqual.
+
+  boolean deepEqual(value1, value2)
+  Compare two values. Return true if equal, false if not.
+
+  Tests
+
+  var x = 5;
+  var y = 5;
+  var z = "6";
+  var obj1 = { value: 10 };
+  var obj2 = { value: 10 };
+  var obj3 = { value: 99 };
+  var obj4 = {
+    make: "toyota",
+    model: "pickup",
+    years: [92, 93, 94] }
+  var obj5 = {
+    make: "toyota",
+    model: "pickup",
+    years: [92, 93, 94] }
+
+  console.log(deepEqual(x, y));
+    true
+  console.log(deepEqual(x, z));
+    false
+  console.log(deepEqual(obj1, obj2));
+    true
+  console.log(deepEqual(obj1, obj3));
+    false
+
+
+*/
