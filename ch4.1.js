@@ -608,6 +608,10 @@ function deepEqual(value1, value2) {
     if ((value1 === null) && (value2 === null)) {
       return true;
     }
-
+    // Iterate therough all the object properties
+    var equal = true;
+    for (var property in value1) {
+      return equal *= deepEqual(value1[property], value2[property]);
+    }
   }
 }
