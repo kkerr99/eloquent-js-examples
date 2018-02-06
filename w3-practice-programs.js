@@ -22,12 +22,12 @@ Example x = 32243;
 Expected Output : 34223
 */
 function reverseNum() {
-  var forwardNumber = 123;
+  var forwardNumber = 32243;
   var forwardString = forwardNumber.toString();
   var reverseString = "";
-  for (i = 0; i < forwardString.length; i++)
+  for (i = forwardString.length - 1; i >= 0; i--)
   {
-    reverseString.unshift(forwardString.pop);
+    reverseString += forwardString[i];
   }
   var reverseNumber = Number(reverseString);
   console.log("Number: " + forwardNumber);
