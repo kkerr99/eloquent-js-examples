@@ -21,7 +21,7 @@ triangleArea();
 Example x = 32243;
 Expected Output : 34223
 */
-function reverseNum() {
+function reverseNum1() {
   var forwardNumber = 32243;
   var forwardString = forwardNumber.toString();
   var reverseString = "";
@@ -34,4 +34,24 @@ function reverseNum() {
   console.log("Reversed number: " + reverseNumber);
 }
 
-reverseNum();
+reverseNum1();
+
+/*
+1. Rewrite reverseNum1 by reversing loop
+Example x = 32243;
+Expected Output : 34223
+*/
+function reverseNum2() {
+  var forwardNumber = 32243;
+  var forwardString = forwardNumber.toString();
+  var reverseString = "";
+  for (i = 0; i < forwardString.length; i++)
+  {
+    reverseString = forwardString[i] + reverseString;
+  }
+  var reverseNumber = Number(reverseString);
+  console.log("Number: " + forwardNumber);
+  console.log("Reversed number: " + reverseNumber);
+}
+
+reverseNum2();
