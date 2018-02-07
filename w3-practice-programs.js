@@ -245,3 +245,35 @@ function fizzBuzz() {
 }
 
 fizzBuzz();
+
+/*
+2.1 Looping a Triangle
+Write a loop that makes seven calls to console.log() to output the following
+triangle:
+#
+##
+###
+####
+#####
+######
+#######
+*/
+function loopTriangle(size, char) {
+  // A traingle has n rows and columns
+  // For an nth row, there are n columns
+  // Loop through the rows
+  for (var x = 1; x <= size; x++) {
+    var row = "";
+    // Build the row
+    for (var y = 1; y <= x; y++) {
+      row += char;
+    }
+    // Print the row
+    console.log(row);
+  }
+}
+
+var SIZE = 30;
+var CHAR = "%";
+
+loopTriangle(SIZE, CHAR);
