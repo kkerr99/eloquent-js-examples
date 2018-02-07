@@ -411,3 +411,95 @@ var limit = 1000;
 var multipleArray = findMultiples(multi1, multi2, limit);
 console.log("Multiples of " + multi1 + " and " + multi2 +": " + multipleArray);
 console.log("Sum of multiples: " + sumArray(multipleArray));
+
+
+/*
+https://projecteuler.net/problem=1
+
+Multiples of 3 and 5 (REWRITTEN TO USE ANY NUMBER OF MULTIPLES)
+
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 
+3, 5, 6 and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below 1000.
+*/
+
+/*
+Return the sum of an array
+
+Tests
+
+var testArray = [4, 5, 6];
+console.log(sumArray(testArray));
+  15
+*/
+function sumArray(array) {
+  var sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+/*
+Return all the natural numbers below limit that are multiples of multi1 or multi2.
+
+Tests
+
+var multi1 = 3;
+var multi2 = 5;
+var limit = 10;
+findMultiples(multi1, multi2, limit)
+console.log("Multiples of " + multi1 + " and " + multi2 +": " + multipleArray);
+console.log("Sum of multiples: " + sumArray(multipleArray));
+
+var multi1 = 3;
+var multi2 = 5;
+var limit = 10;
+findMultiples(multi1, multi2, limit)
+console.log("Multiples of " + multi1 + " and " + multi2 +": " + multipleArray);
+console.log("Sum of multiples: " + sumArray(multipleArray));
+
+var multi1 = 3;
+var multi2 = 5;
+var limit = 1000;
+var multipleArray = findMultiples(multi1, multi2, limit)
+console.log("Multiples of " + multi1 + " and " + multi2 +": " + multipleArray);
+console.log("Sum of multiples: " + sumArray(multipleArray));
+
+*/
+function findMultiples(multi1, multi2, limit) {
+  // Loop through set of natural numbers
+  var multipleArray = [];
+  for (var i = 1; i < arguments[arguments.length - 1]; i++) {
+    // For every number in the list, test against all the multiple test numbers
+    var isMultiple = false;
+    for (var j = 0; j < arguments.length - 1; j++) {
+      if (i % arguments[j] == 0) {
+        isMultiple = true;
+      }
+    }
+    // If the number is a multiple of any of the multiple test numbers, add it
+    // to the array
+    if (isMultiple == true) {
+      multipleArray.push(i);
+    }
+  }
+  // Print the output
+  console.log(">1 and <" + arguments[arguments.length - 1] + ", the multiples of:");
+  for (var k = 0; k < arguments.length - 1; k++) {
+    console.log(arguments[k]);
+  }
+  console.log("are:");
+  for (var l = 0; l < multipleArray.length; l++) {
+    console.log(multipleArray[l]);
+  }
+  console.log("The sum of the multiples is: " + sumArray(multipleArray));
+}
+
+
+var multi1 = 3;
+var multi2 = 5;
+var multi3 = 11;
+var limit = 1000;
+findMultiples(multi1, multi2, multi3, limit);
