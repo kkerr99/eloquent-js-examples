@@ -277,3 +277,70 @@ var SIZE = 30;
 var CHAR = "%";
 
 loopTriangle(SIZE, CHAR);
+
+/*
+2.3 Chess Board
+Write a program that creates a string that represents an 8x8 grid, using
+newline chars to separate lines.
+At each position of the grid there is either a space or a "#" character.
+The chars should form a chess board.
+
+Output:
+
+# # # #
+ # # # #
+# # # #
+ # # # #
+# # # #
+ # # # #
+# # # #
+ # # # #
+*/
+
+function printChessBoard() {
+  var GRIDSIZE = 8;
+  var CHAR = "#";
+  var SOLID = CHAR;
+  var SPACE = " ";
+  // There are GRIDSIZE rows and columns
+  // Loop through the rows
+  var grid = "";
+  for (var x = 0; x < GRIDSIZE; x++) {
+    // Loop through the columns
+    for (var y = 0; y < GRIDSIZE; y++) {
+      var square = "";
+      // Build the row
+
+      // For even rows
+      if (x % 2 == 0) {
+        // For even columns
+        if (y % 2 == 0) {
+          square = SOLID;
+        }
+        // For odd columns
+        else {
+          square = SPACE;
+        }
+      }
+
+      // For odd rows
+      else {
+        // For even columns
+        if (y % 2 == 0) {
+          square = SPACE;
+        }
+        // For odd columns
+        else {
+          square = SOLID;
+        }
+      }
+      grid += square;
+    }
+    // Finish each row
+    grid += "\n";
+  }
+  // Print the grid
+  console.log(grid);
+}
+
+printChessBoard();
