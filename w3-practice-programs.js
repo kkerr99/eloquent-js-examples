@@ -127,11 +127,11 @@ function bubbleSort(array) {
   // Print unsorted array
   console.log("Unsorted: " + array);
   // Passes through array
-  for (i = 0; i < length-1; i++) {
+  for (var i = 0; i < length-1; i++) {
     var x = 0;
     var y = 0;
     // Do adjacent pair swaps
-    for (j = 0; j < length - 1; j++)
+    for (var j = 0; j < length - 1; j++)
     {
       x = array[j];
       y = array[j+1];
