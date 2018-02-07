@@ -196,3 +196,52 @@ function fizzBuzz() {
 }
 
 fizzBuzz();
+
+/*
+2.2a FizzBuzz
+After you have FizzBuzz working, modify program to print "FizzBuzz" for
+numbers that are divisible by both 3 and 5.
+
+Test Suite
+
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+*/
+
+function fizzBuzz() {
+  // Print all numbers from 1 to 100, with exceptions
+  var MAX = 100;
+  for (var i = 1; i <= MAX; i++) {
+    // For numbers divisible by both 3 and 5, print "FizzBuzz"
+    if ( (i % 3 == 0) && (i % 5 == 0)) {
+      console.log("FizzBuzz");
+    }
+    // For numbers divisible only by 3, print "Fizz"
+    else if (i % 3 == 0) {
+      console.log("Fizz");
+    }
+    // For numbers divisible only by 5, print "Buzz"
+    else if (i % 5 == 0) {
+      console.log("Buzz");
+    }
+    // Else, print the number
+    else {
+      console.log(i);
+    }
+  }
+}
+
+fizzBuzz();
