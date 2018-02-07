@@ -148,3 +148,51 @@ function bubbleSort(array) {
 
 var arr = [12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213];
 bubbleSort(arr);
+
+/*
+2.2 FizzBuzz
+Use console.log to print all the numbers from 1 to 100, with two exceptions.
+1) For numbers divisible by 3, print "Fizz" instead of the number.
+2) For numbers divisible by 5 (and not 3), print "Buzz" instead.
+After you have that working, modify program to print "FizzBuzz" for numbers that
+are divisible by both 3 and 5.
+
+Test Suite
+
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+Fizz
+*/
+
+function fizzBuzz() {
+  // Print all numbers from 1 to 100, with exceptions
+  var MAX = 100;
+  for (var i = 1; i <= MAX; i++) {
+    // For numbers divisible by 3, print "Fizz" instead of the number
+    if (i % 3 == 0) {
+      console.log("Fizz");
+    }
+    // For numbers divisible by 5 (and not 3), print "Buzz" instead.
+    else if (i % 5 == 0) {
+      console.log("Buzz");
+    }
+    // Else, print the number
+    else {
+      console.log(i);
+    }
+  }
+}
+
+fizzBuzz();
