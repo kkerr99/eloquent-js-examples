@@ -518,22 +518,50 @@ million, find the sum of the even-valued terms.
 
 Test Suite
 
-var numTerms = 10;
-var fibArray = function fibonacciGenerator(terms);
-console.log("The Fibonacci Sequence for " + fibArray.length + ": " + fibArray);
+For values that do not exceed 90, the even-valued terms are:
+2 8 34
+The sume of these even-valued terms are:
+44
 
+
+var fibArray = [];
+var maxTermValue = 90;
+fibArray = fibonacciGenerator(maxTermValue);
+console.log(sumEvenValueTerms(fibArray));
+--> 44
+
+var fibArray = [];
+var maxTermValue = 4000000;
+fibArray = fibonacciGenerator(maxTermValue);
+console.log(sumEvenValueTerms(fibArray));
 */
 
-// Generate a Fibonacci sequence for the given number of terms
-function fibonacciGenerator(numTerms) {
+// Generate a Fibonacci sequence with values that do not exceed maxTermValue
+function fibonacciGenerator(maxTermValue) {
   var fibSeq = [1, 2];
-  // Calculate the required number of Fib terms
-  for (var i = 0; i < numTerms - 2; i++) {
-    fibSeq[i + 2] = fibSeq[i] + fibSeq[i + 1];
+  // Generate a sequence until a term exceeds maxTermValue
+  var i = 0;
+  var newTerm = 3;
+  while (newTerm <= maxTermValue) {
+    fibSeq[i + 2] = newTerm;
+    i++;
+    newTerm = fibSeq[i] + fibSeq[i + 1];
   }
   return fibSeq;
 }
 
-var numTerms = 10;
-var fibArray = fibonacciGenerator(numTerms);
-console.log("The Fibonacci Sequence for " + fibArray.length + " terms: " + fibArray);
+function sumEvenValueTerms(array) {
+  var sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] % 2 == 0) {
+      sum += array[i];
+    }
+  }
+  return sum;
+}
+
+var fibArray = [];
+var fibArray = [];
+var maxTermValue = 4000000;
+fibArray = fibonacciGenerator(maxTermValue);
+console.log(sumEvenValueTerms(fibArray));
