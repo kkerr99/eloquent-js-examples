@@ -621,3 +621,49 @@ console.log("Prime Factors: " + pFactors);
 // Sort the array into descending order
 pFactors.sort(function(a,b){return b-a});
 console.log("Largest Prime Factor: " + pFactors[0]);
+
+/*
+https://projecteuler.net/problem=4
+
+Largest palindrome product
+
+A palindromic number reads the same both ways.
+The largest palindrome made from the product of two 2-digit numbers is
+9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
+*/
+
+function isPalindrome(x) {
+  var forwardString = x.toString();
+  var reverseString = "";
+  for (var i = forwardString.length - 1; i >= 0; i--) {
+    reverseString += forwardString[i];
+  }
+  if (forwardString === reverseString) return true;
+  else return false;
+}
+
+function findLargestPalindrome() {
+  var ARRAYSIZE = 1000;
+  var largestPalindrome = [0, 0, 0];
+  // Multiply each value of array 1 with each value of array 2
+  var product = 0;
+  for (var x = 0; x < ARRAYSIZE; x++) {
+    for (var y = 0; y < ARRAYSIZE; y++) {
+      product = x * y;
+      // Is the product a palindrome and larger than the current largest palindrome?
+      // If so, record the largest palindrome and its factors
+      if (isPalindrome(product) && product > largestPalindrome[0]) {
+        largestPalindrome[0] = product;
+        largestPalindrome[1] = x;
+        largestPalindrome[2] = y;
+      }
+    }
+  }
+  // Print the largest palindrome and its factors
+  console.log(largestPalindrome[0] + " = " + largestPalindrome[1]
+    + " * " + largestPalindrome[2]);
+}
+
+findLargestPalindrome();
