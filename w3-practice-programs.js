@@ -565,3 +565,59 @@ var fibArray = [];
 var maxTermValue = 4000000;
 fibArray = fibonacciGenerator(maxTermValue);
 console.log(sumEvenValueTerms(fibArray));
+
+/*
+https://projecteuler.net/problem=3
+
+Largest prime factor
+
+The prime factors of 13195 are 5, 7, 13 and 29.
+LPF = 29
+
+What is the largest prime factor of the number 600851475143 ?
+*/
+
+function isPrime(x) {
+  for (var i = 2; i < x; i++) {
+    if (x % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function factor(x) {
+  var factors = [];
+  for (var i = 2; i < x; i++) {
+    if (x % i == 0) {
+      factors[0] = i;
+      factors[1] = x / i;
+      return factors;
+    }
+  }
+}
+
+function findPrimeFactors(x) {
+  var primeFactors = [];
+  function findFactors(x) {
+    if (isPrime(x)) {
+      return primeFactors.push(x);
+    }
+    else {
+      var factors = factor(x);
+      return findFactors(factors[0]) && findFactors(factors[1]);
+    }
+  }
+  findFactors(x);
+  return primeFactors;
+}
+
+
+var x = 600851475143;
+var pFactors = [];
+pFactors = findPrimeFactors(x);
+console.log(x);
+console.log("Prime Factors: " + pFactors);
+// Sort the array into descending order
+pFactors.sort(function(a,b){return b-a});
+console.log("Largest Prime Factor: " + pFactors[0]);
