@@ -744,3 +744,49 @@ function diffOfSquaresAndSum(max) {
 
 var MAX = 100;
 console.log(diffOfSquaresAndSum(MAX));
+
+/*
+https://projecteuler.net/problem=7
+
+10001st prime
+
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+that the 6th prime is 13.
+
+What is the 10 001st prime number?
+
+*/
+
+// Generate 10001 prime numbers
+// Return the last prime to be generated
+
+function isPrime(x) {
+  if (x === 1) return false;
+  if (x === 2) return true;
+  for (var j = 2; j < x; j++) {
+    if (x % j == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function generateNthPrime(n) {
+  // A prime is an integer > 1 that is evenly divisible only by 1 and itself
+  var primeCount = 0;
+  var prime = 0;
+  var i = 1;
+
+  while (primeCount < n) {
+    if (isPrime(i)) {
+      prime = i;
+      primeCount++;
+    }
+    i++;
+  }
+  return prime;
+}
+
+var N = 10001;
+console.log(generateNthPrime(N));
+// 13
