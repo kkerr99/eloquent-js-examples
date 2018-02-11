@@ -698,3 +698,49 @@ function findSmallestMultiple(maxNumber) {
 
 var MAX = 20;
 console.log(findSmallestMultiple(MAX));
+
+/*
+https://projecteuler.net/problem=6
+
+Sum square difference
+
+Find the difference between the sum of the squares of the first
+one hundred natural numbers and the square of the sum.
+*/
+
+// x = The sum of the squares of the first 100 natural numbers
+// y = The square of the sum of the first 100 natural numbers
+// z = y - x
+// Find z
+
+function sumOfSquares(max) {
+  var sum = 0;
+  for (var i = 1; i <= max; i++) {
+    sum += Math.pow(i, 2);
+  }
+  return sum;
+}
+
+function squareOfSum(max) {
+  var sum = 0;
+  var squareOfSum = 0;
+  for (var j = 1; j <= max; j++) {
+    sum += j;
+  }
+  squareOfSum = Math.pow(sum, 2);
+  return squareOfSum;
+}
+
+function diffOfSquaresAndSum(max) {
+  var x = 0;
+  var y = 0;
+  var z = 0;
+
+  x = sumOfSquares(max);
+  y = squareOfSum(max);
+  z = y - x;
+  return z;
+}
+
+var MAX = 100;
+console.log(diffOfSquaresAndSum(MAX));
