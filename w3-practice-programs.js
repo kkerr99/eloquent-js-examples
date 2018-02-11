@@ -667,3 +667,34 @@ function findLargestPalindrome() {
 }
 
 findLargestPalindrome();
+
+/*
+https://projecteuler.net/problem=5
+
+Smallest multiple
+
+2520 is the smallest number that can be divided by each of the numbers from
+1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the
+numbers from 1 to 20?
+*/
+function numEvenlyDivisible(x, maxNumber) {
+  var evenlyDivisbile = true;
+  for (var j = 1; j <= maxNumber; j++) {
+    evenlyDivisbile *= (x % j == 0);
+  }
+  return evenlyDivisbile;
+}
+
+
+function findSmallestMultiple(maxNumber) {
+  var i = 1;
+  while (!numEvenlyDivisible(i, maxNumber)) {
+    ++i;
+  }
+  return i;
+}
+
+var MAX = 20;
+console.log(findSmallestMultiple(MAX));
