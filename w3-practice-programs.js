@@ -898,3 +898,48 @@ function largestProduct(productSize) {
 
 var SIZE = 13;
 largestProduct(SIZE);
+
+/*
+https://projecteuler.net/problem=9
+
+Special Pythagorean triplet
+
+A Pythagorean triplet is a set of three natural numbers, a < b < c, for which
+a**2 + b**2 = c**2
+
+For example, 3**2 + 4**2 = 9 + 16 = 25 = 5**2.
+
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.
+
+Solving for:
+
+a**2 + b**2 = c**2
+a + b + c = 1000
+c = 1 + b
+b = 1 + a
+
+Set up a loop (incrementing i) to compare sliding window (i, i + 1, i + 2)
+In loop body:
+  Determine if:
+    a**2 + b**2 = c**2
+    a + b + c = 1000
+
+*/
+
+function pythagoreanTriplet(sum) {
+  var answer = "";
+  var i = 1;
+  while (true) {
+    if ((Math.pow(i, 2) + Math.pow(i+1, 2) == Math.pow(i+2, 2)) && ((i) + (i+1) + (i+2)==sum)) {
+      break;
+    }
+    i++;
+  }
+  answer = i + ", " + (i+1) + ", " + (i+2);
+  console.log(answer);
+}
+
+var SUM = 1000;
+pythagoreanTriplet(SUM);
+// 3, 4, 5
