@@ -916,18 +916,6 @@ Solving for:
 
 a**2 + b**2 = c**2
 a + b + c = 1000
-c = 1 + b
-b = 1 + a
-
-Set up a loop (incrementing i) to compare sliding window (i, i + 1, i + 2)
-In loop body:
-  Determine if:
-    a**2 + b**2 = c**2
-    a + b + c = 1000
-
-    if ((Math.pow(i, 2) + Math.pow(j, 2) == Math.pow(k, 2)) && ((i + j + k) == sum))
-
-
 */
 
 function pythagoreanTriplet(sum) {
@@ -947,9 +935,10 @@ function pythagoreanTriplet(sum) {
           }
         }
       }
-    }     
+    }
   }
 }
 
 var SUM = 1000;
 pythagoreanTriplet(SUM);
+// 3, 4, 5
