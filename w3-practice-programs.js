@@ -934,6 +934,10 @@ function pythagoreanTriplet(sum) {
     if ((Math.pow(i, 2) + Math.pow(i+1, 2) == Math.pow(i+2, 2)) && ((i) + (i+1) + (i+2)==sum)) {
       break;
     }
+    if (i == 1000) {
+      console.log("Answer not found")
+      break;
+    }
     i++;
   }
   answer = i + ", " + (i+1) + ", " + (i+2);
