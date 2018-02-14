@@ -925,25 +925,31 @@ In loop body:
     a**2 + b**2 = c**2
     a + b + c = 1000
 
+    if ((Math.pow(i, 2) + Math.pow(j, 2) == Math.pow(k, 2)) && ((i + j + k) == sum))
+
+
 */
 
 function pythagoreanTriplet(sum) {
   var answer = "";
-  var i = 1;
-  while (true) {
-    if ((Math.pow(i, 2) + Math.pow(i+1, 2) == Math.pow(i+2, 2)) && ((i) + (i+1) + (i+2)==sum)) {
-      break;
-    }
-    if (i == 1000) {
-      console.log("Answer not found")
-      break;
-    }
-    i++;
+  var a = 0;
+  var b = 0;
+  var c = 0;
+  for (var i = 1; i <= 1000; i++) {
+    for (var j = 1; j <= 1000; j++) {
+      for (var k = 1; k <= 1000; k++) {
+        if ((i + j + k)  == sum) {
+          if (Math.pow(i, 2) + Math.pow(j, 2) == Math.pow(k, 2)) {
+            console.log(Math.pow(i, 2) + " * " + Math.pow(j, 2) + " = " + Math.pow(k, 2));
+            console.log(i + " + " + j + " + " + k + " = " + sum);
+            console.log(i + " * " + j + " * " + k + " = " + (i * j * k));
+            return;
+          }
+        }
+      }
+    }     
   }
-  answer = i + ", " + (i+1) + ", " + (i+2);
-  console.log(answer);
 }
 
 var SUM = 1000;
 pythagoreanTriplet(SUM);
-// 3, 4, 5
