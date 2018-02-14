@@ -919,10 +919,6 @@ a + b + c = 1000
 */
 
 function pythagoreanTriplet(sum) {
-  var answer = "";
-  var a = 0;
-  var b = 0;
-  var c = 0;
   for (var i = 1; i <= 1000; i++) {
     for (var j = 1; j <= 1000; j++) {
       for (var k = 1; k <= 1000; k++) {
@@ -941,4 +937,3 @@ function pythagoreanTriplet(sum) {
 
 var SUM = 1000;
 pythagoreanTriplet(SUM);
-// 3, 4, 5
