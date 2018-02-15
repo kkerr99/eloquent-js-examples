@@ -966,17 +966,21 @@ function isPrime(x) {
   return true;
 }
 
-function primeSum(max) {
+function primeSum(max, STATUSCOUNTER) {
   var primeSum = 0;
   for (var i = 1; i < max; i++) {
     if (isPrime(i)) {
       primeSum += i;
     }
+    // Print status periodically
+    if (i % STATUSCOUNTER == 0) {
+      console.log("Numbers checked: " + i);
+    }
   }
   return primeSum;
 }
 
-
 var MAX = 2000000;
-var sumOfPrimes = primeSum(MAX);
+var STATUSCOUNTER = 1000;
+var sumOfPrimes = primeSum(MAX, STATUSCOUNTER);
 console.log("The sum of primes below " + MAX + " = " + sumOfPrimes);
