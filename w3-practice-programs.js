@@ -937,3 +937,46 @@ function pythagoreanTriplet(sum) {
 
 var SUM = 1000;
 pythagoreanTriplet(SUM);
+
+/*
+https://projecteuler.net/problem=10
+
+Summation of primes
+
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+
+Strategy:
+
+primeSum = 0;
+Write isPrime() function
+Loop (i) through all natural numbers, 1 ... max - 1
+  If isPrime(i)
+    add i to primeSum
+return primeSum
+*/
+
+function isPrime(x) {
+  if (x == 1) return false;
+  if (x == 2) return true;
+  for (var j = 2; j < x; j++) {
+    if (x % j == 0) return false;
+  }
+  return true;
+}
+
+function primeSum(max) {
+  var primeSum = 0;
+  for (var i = 1; i < max; i++) {
+    if (isPrime(i)) {
+      primeSum += i;
+    }
+  }
+  return primeSum;
+}
+
+
+var MAX = 2000000;
+var sumOfPrimes = primeSum(MAX);
+console.log("The sum of primes below " + MAX + " = " + sumOfPrimes);
