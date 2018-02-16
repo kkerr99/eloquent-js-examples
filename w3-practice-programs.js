@@ -1068,7 +1068,7 @@ return the largest product:
 function maxVP(gridObj) {
   var product = 0;
 
-  for (var x = 0; x < gridObj.ARRAYSIZE; x++) {
+  for (var x = 0; x + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; x++) {
     for (var y = 0; y + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; y++) {
       product = gridObj.grid[x][y] * gridObj.grid[x][y+1] * gridObj.grid[x][y+2] * gridObj.grid[x][y+3];
       if (product > gridObj.maxProduct) {
@@ -1080,15 +1080,22 @@ function maxVP(gridObj) {
 
 
 function maxHP(gridObj) {
+  var product = 0;
+
+  for (var x = 0; x + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; x++) {
+    for (var y = 0; y < gridObj.ARRAYSIZE; y++) {
+      product = gridObj.grid[x][y] * gridObj.grid[x+1][y] * gridObj.grid[x+2][y] * gridObj.grid[x+3][y];
+      if (product > gridObj.maxProduct) {
+        gridObj.maxProduct = product;
+      }
+    }
+  }
 }
 
 function maxDPP(gridObj) {
-}
-
-function maxDNP(gridObj) {
   var product = 0;
 
-  for (var x = 0; x < gridObj.ARRAYSIZE; x++) {
+  for (var x = 0; x + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; x++) {
     for (var y = 0; y + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; y++) {
       product = gridObj.grid[x][y+3] * gridObj.grid[x+1][y+2] * gridObj.grid[x+2][y+1] * gridObj.grid[x+3][y];
       if (product > gridObj.maxProduct) {
@@ -1098,6 +1105,18 @@ function maxDNP(gridObj) {
   }
 }
 
+function maxDNP(gridObj) {
+  var product = 0;
+
+  for (var x = 0; x + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; x++) {
+    for (var y = 0; y + gridObj.WINDOWSIZE < gridObj.ARRAYSIZE; y++) {
+      product = gridObj.grid[x][y] * gridObj.grid[x+1][y+1] * gridObj.grid[x+2][y+2] * gridObj.grid[x+3][y+3];
+      if (product > gridObj.maxProduct) {
+        gridObj.maxProduct = product;
+      }
+    }
+  }
+}
 
 function largestGridProduct() {
 
@@ -1139,7 +1158,7 @@ function largestGridProduct() {
 
   // Find the largest product
   maxVP(gridObject);
-  maxHP(gridObject);
+  //maxHP(gridObject);
   maxDPP(gridObject);
   maxDNP(gridObject);
   console.log(gridObject.maxProduct);
