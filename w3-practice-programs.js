@@ -1071,8 +1071,8 @@ function largestGridProduct() {
   var WINDOWSIZE = 4;
   var ARRAYLENGTH = 20;
 
-  // Create an array of strings
-  var stringArray = [
+  // Create 2D array of strings
+  var grid = [
     ["08", "02", "22", "97", "38", "15", "00", "40", "00", "75", "04", "05", "07", "78", "52", "12", "50", "77", "91", "08"],
     ["49", "49", "99", "40", "17", "81", "18", "57", "60", "87", "17", "40", "98", "43", "69", "48", "04", "56", "62", "00"],
     ["81", "49", "31", "73", "55", "79", "14", "29", "93", "71", "40", "67", "53", "88", "30", "03", "49", "13", "36", "65"],
@@ -1095,25 +1095,14 @@ function largestGridProduct() {
     ["01", "70", "54", "71", "83", "51", "54", "69", "16", "92", "33", "48", "61", "43", "52", "01", "89", "19", "67", "48"]
   ];
 
-  // Convert 1D array of strings into 2D array of strings
-  var numberGrid = [[],[]];
-  numberGrid.fill(5);
-  console.log(numberGrid);
-
-  for (var i = 0; i < ARRAYLENGTH; i++) {
-    numberGrid[i] = parseInt(stringArray[i].split(" "));
-  }
-
-  console.log(numberGrid);
-  /*
-  // Convert array of strings into an array of integers
-  var numberGrid = [ARRAYLENGTH] [ARRAYLENGTH];
+  // In grid, convert strings to integers
   for (var j = 0; j < ARRAYLENGTH; j++) {
     for (var k = 0; k < ARRAYLENGTH; k++) {
-      numberGrid[j] [k] = parseInt(stringGrid[j] [k]);
+      grid[j][k] = parseInt(grid[j][k]);
     }
   }
-  */
+
+
 }
 
 largestGridProduct();
