@@ -1147,3 +1147,55 @@ function largestGridProduct() {
 }
 
 largestGridProduct();
+
+/*
+https://projecteuler.net/problem=12
+
+Highly divisible triangular number
+
+What is the value of the first triangle number to have over five hundred divisors?
+
+Strategy
+
+Loop through the natural numbers (1...n)
+  Calculate the triangle number for n
+  Factor the triangle number
+  Determine the number of factors
+  If # factors is > 500
+    Return triange number
+*/
+
+function numberOfFactors(num) {
+  var factorCounter = 0;
+
+  for (var j = 1; j <= num; j++) {
+    if (num % j == 0) {
+      factorCounter++;
+    }
+  }
+  return factorCounter;
+}
+
+function triNumber(num) {
+  var triNum = 0;
+  for (var i = 1; i <= num; i++) {
+    triNum += i;
+  }
+  return triNum;
+}
+
+function highDivTriNumber(maxDivisor) {
+  var n = 1;
+
+  while (true) {
+    var triNum = triNumber(n);
+    var numFactors = numberOfFactors(triNum);
+    console.log(triNum + " factors: " + numFactors + " / " + maxDivisor);
+    if (numFactors > maxDivisor) return triNum;
+    n++;
+  }
+
+}
+
+var MAXDIVISORS = 500;
+console.log(highDivTriNumber(MAXDIVISORS));
