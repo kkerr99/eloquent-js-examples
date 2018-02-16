@@ -1074,6 +1074,7 @@ function maxVP(gridObj) {
       if (product > gridObj.maxProduct) {
         gridObj.maxProduct = product;
       }
+      console.log("VP: " + product + " MP: " + gridObj.maxProduct);
     }
   }
 }
@@ -1088,6 +1089,7 @@ function maxHP(gridObj) {
       if (product > gridObj.maxProduct) {
         gridObj.maxProduct = product;
       }
+      console.log("HP: " + product + " MP: " + gridObj.maxProduct);
     }
   }
 }
@@ -1101,6 +1103,7 @@ function maxDPP(gridObj) {
       if (product > gridObj.maxProduct) {
         gridObj.maxProduct = product;
       }
+      console.log("DPP: " + product + " MP: " + gridObj.maxProduct);
     }
   }
 }
@@ -1114,6 +1117,7 @@ function maxDNP(gridObj) {
       if (product > gridObj.maxProduct) {
         gridObj.maxProduct = product;
       }
+      console.log("DNP: " + product + " MP: " + gridObj.maxProduct);
     }
   }
 }
@@ -1158,11 +1162,10 @@ function largestGridProduct() {
 
   // Find the largest product
   maxVP(gridObject);
-  //maxHP(gridObject);
+  maxHP(gridObject);
   maxDPP(gridObject);
   maxDNP(gridObject);
   console.log(gridObject.maxProduct);
-
 }
 
 largestGridProduct();
