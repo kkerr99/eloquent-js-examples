@@ -1461,3 +1461,49 @@ function largeSum(numArray, displayDigits) {
 var DISPLAYDIGITS = 10;
 console.log(largeSum(numArray, DISPLAYDIGITS));
 // 5537376230
+
+/*
+https://projecteuler.net/problem=14
+
+#4-Longest Collatz sequence
+
+Which starting number, under one million, produces the longest chain?
+
+NOTE: Once the chain starts the terms are allowed to go above one million.
+
+Strategy:
+
+Recursive function
+*/
+
+function longestCollatzSequence(upperLimit) {
+  var longestChain = 0;
+  var longestChainProducer = 0;
+
+  function collatzSequence(n, chainLength) {
+    if (n == 1) {
+      return chainLength;
+    }
+    else {
+      if (n % 2 == 0) {
+        return collatzSequence(n/2, chainLength+1);
+      }
+      else {
+        return collatzSequence(3*n + 1, chainLength+1);
+      }
+    }
+  }
+
+  for (var i = 2; i < upperLimit; i++) {
+    var chain = collatzSequence(i, 1);
+    if (chain > longestChain) {
+      longestChain = chain;
+      longestChainProducer = i;
+    }
+    console.log("n: " + i + " CL: " + chain + " LCL: " + longestChain + " n -> LCL: " + longestChainProducer);
+  }
+  return longestChainProducer;
+}
+
+var UPPERLIMIT = 1000000;
+console.log(longestCollatzSequence(UPPERLIMIT));
