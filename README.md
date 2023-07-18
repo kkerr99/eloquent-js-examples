@@ -1,2 +1,2 @@
 # eloquent-js-examples
-Answers to programming assignments in Eloquent JavaScript book.
+My answers (in code) to the programming assignments in the "Eloquent JavaScript" book.
